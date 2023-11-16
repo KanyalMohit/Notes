@@ -4,6 +4,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.IconButtonColors
@@ -56,7 +57,9 @@ fun NoteButton(
     Button(onClick = onClick
     , shape = CircleShape ,
         enabled = enabled,
-        modifier = modifier) {
+        modifier = modifier,
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF757575))
+    ) {
         Text(text)
     }
 }

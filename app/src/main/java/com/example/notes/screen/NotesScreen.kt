@@ -74,7 +74,7 @@ fun NotesScreen(
 
     Surface(
         modifier = Modifier,
-        color = Color(0xBAF8FFFF)
+        color = Color(0xFFE0E0E0)
 
     ){
         Column(modifier = Modifier.padding(5.dp)) {
@@ -92,7 +92,7 @@ fun NotesScreen(
                     )
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = Color(0xFF00BFA5),
+                    containerColor = Color(0xFF757575),
                     titleContentColor = Color(0xFF000000)
                 )
             )
@@ -173,7 +173,7 @@ fun NotesScreen(
 
                 items(notes){note ->
                     NoteRow(note = note,
-                        color = color
+                        initialColor =  color
                         , onNoteClicked = {
                         onRemoveNote(note)
                     })
@@ -191,9 +191,13 @@ fun NotesScreen(
 fun NoteRow(
     modifier: Modifier = Modifier,
     note: Note,
-    color: Color= Color(0xFF00B8D4),
+    initialColor: Color= Color(0xFF00B8D4),
     onNoteClicked: (Note) -> Unit
 ) {
+
+    val color: Color by remember {
+        mutableStateOf(initialColor)
+    }
 
     Surface(
         modifier = Modifier
@@ -205,7 +209,7 @@ fun NoteRow(
     ) {
         Column(
             modifier
-               // .clickable { onNoteClicked(note) }
+                // .clickable { onNoteClicked(note) }
                 .padding(horizontal = 14.dp, vertical = 6.dp),
             horizontalAlignment = Alignment.Start) {
 
