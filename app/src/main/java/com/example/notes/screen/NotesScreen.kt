@@ -47,8 +47,7 @@ import com.example.notes.components.NoteButton
 import com.example.notes.components.NoteInputText
 import com.example.notes.data.NotesDataSource
 import com.example.notes.model.Note
-import java.time.format.DateTimeFormatter
-
+import com.example.notes.util.formatDate
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -240,7 +239,7 @@ fun NoteRow(
 
             Text(
                 modifier=Modifier.fillMaxWidth()
-                ,text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE,d MMM")),
+                ,text = formatDate(note.entryDate.time),
                 style = MaterialTheme.typography.labelSmall,
                 textAlign = TextAlign.End)
         }
