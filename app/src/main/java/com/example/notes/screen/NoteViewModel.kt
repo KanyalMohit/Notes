@@ -1,6 +1,5 @@
 package com.example.notes.screen
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.notes.model.Note
@@ -24,12 +23,12 @@ class NoteViewModel @Inject constructor(private val repository: NoteRepository) 
         viewModelScope.launch(Dispatchers.IO) {
             repository.getAllNotes().distinctUntilChanged()
                 .collect { listOfNotes ->
-                    if (listOfNotes.isNullOrEmpty()) {
+                   /* if (listOfNotes.isNullOrEmpty()) {
                         Log.d("Empty", ": Empty list")
                     }else {
                         Log.d("NoteViewModel", "List of notes changed: $listOfNotes")
-                        _noteList.value = listOfNotes
-                    }
+                    }*/
+                    _noteList.value = listOfNotes
 
 
                 }

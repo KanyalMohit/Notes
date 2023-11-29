@@ -1,9 +1,12 @@
 package com.example.notes
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -21,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.light(scrim = Color.BLACK, darkScrim = Color.GRAY))
         super.onCreate(savedInstanceState)
         setContent {
             NotesTheme {
@@ -54,7 +58,6 @@ fun NotesApp(noteViewModel: NoteViewModel) {
 @Composable
 fun GreetingPreview() {
     NotesTheme {
-        val noteViewModel = viewModel<NoteViewModel>()
-        NotesApp(noteViewModel = noteViewModel)
+        
     }
 }

@@ -82,6 +82,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
 
+    //for status bar
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.33.2-alpha")
+
 }
 kapt {
     correctErrorTypes = true

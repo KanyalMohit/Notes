@@ -26,17 +26,23 @@ fun NoteInputText(
     label: String,
     maxLine: Int =1,
     onTextChange:(String) -> Unit,
-    onImeAction: () -> Unit={}
+    onImeAction: () -> Unit={},
+    imeAction: ImeAction = ImeAction.Done
+
 
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
         value = text,
         onValueChange = onTextChange,
-        colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent),
-        maxLines  = maxLine,
+        colors = TextFieldDefaults.colors(
+            focusedContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
+            disabledContainerColor = Color.Transparent,
+        ),
+        maxLines = maxLine,
         label = { Text(text = label) },
-        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = imeAction),
         keyboardActions = KeyboardActions(onDone = {
             onImeAction()
             keyboardController?.hide()
@@ -58,9 +64,9 @@ fun NoteButton(
     , shape = CircleShape ,
         enabled = enabled,
         modifier = modifier,
-        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF757575))
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF64C2C2))
     ) {
-        Text(text)
+        Text(text, color = Color.Black)
     }
 }
 
